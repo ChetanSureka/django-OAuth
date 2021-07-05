@@ -1,0 +1,64 @@
+body{
+    font-family: Bitter;
+    font-weight: 500;
+}
+
+header{
+    background-color: whitesmoke;
+    height: 64px;
+    padding-top: 10px;
+    box-shadow: 1px 1px 3px #9e9c9c;
+}
+
+main{
+    padding-top: 70px;
+}
+
+a{
+    color: #539156;
+    text-decoration: none !important;
+    font-family: 'Bitter';
+}
+
+a.hoverable{
+    transition: all 5ms ease-in-out;
+}
+
+a.hoverable:hover{
+    color: #539156;
+    background: rgba(0, 0, 0, .2);
+    padding: 1em 0.5em;
+    margin: 0 -0.5em;
+}
+
+a#logo:hover{
+    color: #539156 !important;
+    background: none !important;
+}
+
+.hoverable img{
+    width: 24px;
+    height: 24px;
+}
+
+.clear{
+    height: 2px;
+    background-color: #4eeb56;
+}
+
+footer{
+    background-color:whitesmoke;
+    text-align: center;
+    padding: 3px;
+    color: #539156;
+}
+
+footer p{
+    padding-top: 10px;
+}
+
+footer p a:hover{
+    color: rgb(87, 255, 185);
+    padding: 1em 0.5em;
+    margin: 0 -0.5em;
+}

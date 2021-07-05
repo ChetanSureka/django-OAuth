@@ -1,0 +1,24 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% load account socialaccount %}
+
+{% block title %}
+    Sign Up | Crackerjack
+{% endblock title %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'oauth/account/css/signup.css' %}">
+{% endblock extrahead %}
+
+{% block content %}
+    <div class="container col-md-8 main-signup">
+        <h1 style="margin-top: 20px;">Sign Up</h1>
+        <form class="signup container col-md-8" id="signup_form" method="post" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="sign-up btn btn-success col-md-5">Sign up</button>
+            <h5><span>or</span></h5>
+            <a href="{% provider_login_url 'google' %}" class="sign-up btn btn-danger col-md-5">Sign up with google</a>
+        </form>
+    </div>
+{% endblock %}

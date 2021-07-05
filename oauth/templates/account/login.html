@@ -1,0 +1,33 @@
+{% extends "account/base.html" %}
+{% load account socialaccount %}
+{% load static %}
+{% block title %}login | Crackerjack{% endblock %}
+
+{% block extrahead %}<link rel="stylesheet" href="{% static 'oauth/account/css/login.css' %}">{% endblock extrahead %}
+
+{% block content %}
+    <div class="container top">
+        <h2>Crackerjack Login</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="container">
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                    
+                <button class="btn btn-success" type="submit">Login</button>
+                <a href="{% provider_login_url 'google' %}" class="btn btn-danger btn-lg btn-block" role="button" aria-pressed="true">Login with Google</a>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+            <div class="extra">
+                <p class="col-md-10">Don't have a account? <a href="../../accounts/signup">Register here</a></p>
+                <span class="password col-md-4">Forgot <a href="#">password?</a></span>
+            </div>
+            
+        </form>
+    </div>
+{% endblock content %}

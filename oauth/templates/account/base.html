@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <title>{% block title %}{% endblock title %}</title>
+    {% block extrahead %}{% endblock extrahead %}
+
+    <!-- fonts-Bitter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Material icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'oauth/account/css/styles.css' %}">
+    <!-- FontAwesome JS-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</head>
+<body>
+    <!-- header -->
+    <header class="app-header fixed-top">
+        <div class="header-inner">
+            <div class="container-fluid py-2">
+                <div class="header-content">
+                    <div class="row align-items-center">
+                        <div class="col-2 col-lg-auto">
+                            <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
+                                <i class="material-icons header-icons">menu</i>
+                            </a>
+                        </div>
+                        <div class="header-logo col-8 col-lg-2 text-center" style="font-family: serif; font-size: 22px;">
+                            <a id="logo" href="http://127.0.0.1:8000/" title="Home">Crackerjack</a>
+                        </div>
+                        <div class="col-8" style="width: 60%;">
+                            <div class="row align-items-center">
+                                <div class="item col-1">
+                                    <a href="#Home" class="hoverable header-active">Home</a>
+                                </div>
+                                <div class="item col-auto">
+                                    <a href="#Commuinities" class="hoverable">Commuinites</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto app-search-box">
+                            <div class="app-utility-item app-user-dropdown dropdown app-search-form">
+                                {% if user.is_authenticated %}
+                                    <a class="dropdown-toggle hoverable" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                                        <img src="http://127.0.0.1:8000/static/oauth/account/css/account_circle_black_24dp.svg" alt="user profile">
+                                        <span>{{ user.username }}</span>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
+                                        <li><a class="dropdown-item" href="#account.html">Account</a></li>
+                                        <li><a class="dropdown-item" href="#settings.html">Settings</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="http://127.0.0.1:8000/accounts/logout/">Log Out</a></li>
+                                    </ul>
+                                {% else %}
+                                    <a class="hoverable" href="http://127.0.0.1:8000/accounts/login/">
+                                        <img src="http://127.0.0.1:8000/static/oauth/account/css/account_circle_black_24dp.svg" alt="user profile">
+                                        <span>Login</span>
+                                    </a>
+                                    <a href="http://127.0.0.1:8000/accounts/signup/" class="btn btn-success" style="
+                                    border-radius: 12px;
+                                    width: 80px;
+                                    margin-left: 10px;
+                                    ">Join</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block extra_header %}{% endblock extra_header %}
+    </header>
+    <!-- end header -->
+    
+    <!-- content -->
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+    <!-- end content -->
+    
+    <div class="clear"></div>
+
+    <!-- footer -->
+    <footer>
+        {% block extra_footer %}{% endblock extra_footer %}
+        <p>Created By: <a href="mailto:surekachetanfr09@gmail.com">Chetan Sureka</a></p>
+    </footer>
+    <!-- end footer -->
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
